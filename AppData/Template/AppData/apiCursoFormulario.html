@@ -4,7 +4,8 @@
 
 {% block title %} Formulario {% endblock title %}
 
-{% block main %} 
+{% block basemain %} 
+<h1>hola mundo</h1>
     <form action = "" method="POST">{% csrf_token %}
 
         <table>
@@ -15,4 +16,4 @@
 
     </form>
 
-{% endblock main %}
+{% endblock basemain %}

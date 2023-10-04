@@ -39,6 +39,7 @@ def apiCursoFormulario(request):
     else:
         
         miFormulario = CursoFormulario()
+        print(miFormulario)
         
     return render(request, "AppData/apiCursoFormulario.html", {"miFormulario": miFormulario})
 
