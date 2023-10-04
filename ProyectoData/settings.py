@@ -55,7 +55,7 @@ ROOT_URLCONF = 'ProyectoData.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [r'C:\Users\teo_9\Downloads\CoderHouse - Python\3ra Entrega - Python\AppData\Template'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
