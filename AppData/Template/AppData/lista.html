@@ -1,0 +1,16 @@
+{% extends 'AppData/base.html' %}
+
+{% load static %} 
+
+{% block title %} Inicio {% endblock title %}
+
+{% block basemain %} 
+
+{% for curso in cursos %}
+
+<p>Curso: {{ curso.curso }}</p>
+<p>Comisión: {{ curso.comisión }}</p>
+
+{% endfor %} 
+
+{% endblock basemain %}

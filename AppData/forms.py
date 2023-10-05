@@ -2,7 +2,8 @@ from django import forms
 
 class CursoFormulario(forms.Form):
     curso = forms.CharField()
-    comision = forms.IntegerField()
+    comisión = forms.IntegerField()
+    turno = forms.CharField()
     
 class BuscaCursoForm(forms.Form):
     curso = forms.CharField()

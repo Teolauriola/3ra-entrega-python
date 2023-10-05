@@ -1,6 +1,7 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from AppData.models import Curso
-from AppData.forms import CursoFormulario 
+from AppData.forms import CursoFormulario, BuscaCursoForm
 
 # Create your views here.
 def inicio(request):
@@ -30,7 +31,7 @@ def apiCursoFormulario(request):
             
             informacion = miFormulario.cleaned_data
             
-            curso = Curso(nombre = informacion['curso'], comision = informacion['comision'])
+            curso = Curso (curso=informacion["curso"], comisión=informacion["comisión"], turno=informacion["turno"])
             
             curso.save()
             
@@ -43,4 +44,28 @@ def apiCursoFormulario(request):
         
     return render(request, "AppData/apiCursoFormulario.html", {"miFormulario": miFormulario})
 
+def buscar(request):
+    
+    if request.method == 'POST':
+        
+        miFormulario = BuscaCursoForm(request.POST)
+        
+        print(miFormulario)
+        
+        if miFormulario.is_valid():
+            
+            informacion = miFormulario.cleaned_data
+            
+            cursos = Curso.objects.filter(curso__icontains=informacion["curso"])
+            
+        return render(request, "AppData/lista.html", {"cursos": cursos})
+    
+    else:
+        
+        miFormulario = BuscaCursoForm()
+        print(miFormulario)
+        
+    return render(request, "AppData/buscar.html", {"miFormulario": miFormulario})
 
+def mostrar(request):
+    pass
